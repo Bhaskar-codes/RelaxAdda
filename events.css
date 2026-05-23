@@ -1,0 +1,147 @@
+#Events{
+    display: grid;
+    grid-template-rows: 0.4fr 1fr;
+    height: 100vh;
+    width: 100vw;
+    padding:0 1em 0 1em;
+    /* border: 2px solid red; */
+    margin-top: 1em;
+    row-gap: 10px;
+    color: aliceblue;
+}
+.events-text{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* border: 2px solid red; */
+}
+.show2{
+animation: fadeup 1.5s ease-out;
+}
+.events-p-1{
+     font-family: "Bree Serif", serif;
+     text-wrap: wrap;
+  line-height: 1.5em;
+  color: orange;
+  font-size: 26px;
+  letter-spacing: 0.5em;
+  font-weight: 100;
+}
+.events-h-1{
+     margin: 0px 0.5em;
+      font-family: 'Cinzel', serif;
+      color: #ffff;
+      font-weight: 800;
+       font-size: 3.2em;
+    line-height: 1.1;
+    overflow: hidden;
+    white-space: nowrap;
+      margin-left: 35%;
+    width: 20ch;
+    animation: typing 2s steps(15) infinite alternate-reverse;
+}
+.events-h-2{
+    padding: 0.5em 1em;
+    font-size: 26px;
+    color: orange;
+     font-family: "Momo Signature", cursive;
+
+}
+.events-p-2{
+    max-width: 500px;
+    margin-left: 35%;
+    color: rgb(186, 189, 191);
+    font-size: 16px;
+}
+.events-card{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    column-gap: 20px;
+/* border: 2px solid red; */
+margin-top: 0;
+}
+.card2{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: 500px;
+    width: 280px;
+    opacity: 0;
+    position: relative;
+    overflow: hidden;
+   /* border: 2px solid red; */
+   border: 1px solid orange;
+   border-radius: 5%;
+   transition: transform 0.6s ease;
+
+}
+.card2:hover{
+    scale: 1.1;
+    cursor: pointer;
+}
+.card-img{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* object-fit: contain; */
+}
+.card-img IMG{
+    filter: blur(0 0 10px 0);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.card-text span{
+      padding: 0.51em;
+    font-size: 30px;
+    color: orange;
+     border: 3px solid rgba(241, 164, 10, 0.882);
+    border-radius: 2em;
+  }
+  .card-text-h{
+    margin-top: 1em;
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+  }
+  .card-text-p{
+    color: orange;
+    margin-top: 0.5em;
+    font-size: 16px;
+  }
+  .card-text-p2{
+    margin-top: 1em;
+    color: rgba(157, 160, 162, 0.944);
+  }
+  .join-us{
+    margin-top: 1em;
+    background: none;
+    border: none;
+    color: orange;
+    font-size: 22px;
+    
+    font-family: 'Cinzel', serif;
+    cursor: pointer;
+    
+  }
+  .join-us span{
+      padding: 0em;
+    font-size: 20px;
+    color: orange;
+     border:none;
+    border-radius: 2em;
+
+  }
+.show3{
+    animation: fadeup2 4s ease forwards;
+}
+.card2.show3:nth-child(1){
+    animation-delay: 0s;
+}
+.card2.show3:nth-child(2){
+    animation-delay: 0.5s;
+}
+.card2.show3:nth-child(3){
+    animation-delay: 1s;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .banner{
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+    .banner .prod{
+        background-color: red;
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        bottom: 178px;
+        left: 50%;
+        transform: translateX(-100%);
+        z-index: 1;
+        transition: 0.7s;
+        --left: 0px;
+    }
+    .banner .prod .soda{
+        background: 
+        url(coffee_banner_248x500.png) var(--left) 0,
+        url(download__12_-removebg-preview.png);
+        background-size: auto 100%;
+        width: 380px;
+        aspect-ratio: 2 / 3;
+        background-blend-mode: multiply;
+        mask-image: url(download__12_-removebg-preview.png);
+        mask-size: auto 100%;
+
+    }
+    .banner .prod:hover{
+        --left: -1000px
+    }
+</style>
+<body>
+    <div class="banner">
+        <div class="prod">
+            <div class="soda">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

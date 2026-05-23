@@ -1,0 +1,377 @@
+#Reservation {
+  width: min(96vw, 1500px);
+  min-height: 100vh;
+  margin: 1rem auto;
+  padding: 1rem 1.4rem 1.2rem;
+  color: #f7e4ca;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(189, 92, 8, 0.14), transparent 34%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.86), rgba(8, 5, 2, 0.94));
+  border-radius: 18px;
+}
+
+.reservation-header {
+  text-align: center;
+  margin: 0 auto 1rem;
+  opacity: 0;
+}
+
+.reservation-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.15rem;
+  font-family: "Momo Signature", cursive;
+  font-size: 1.55rem;
+  color: #e97810;
+}
+
+.reservation-title::before,
+.reservation-title::after {
+  content: "";
+  width: 72px;
+  height: 1px;
+  background: #c56612;
+}
+
+.reservation-header h1 {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.5rem, 4.6vw, 4.4rem);
+  line-height: 1;
+  font-weight: 800;
+  color: #f4dcc0;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
+}
+
+.reservation-header > p:last-child {
+  margin-top: 0.55rem;
+  font-family: "Bree Serif", serif;
+  font-size: clamp(0.9rem, 1.25vw, 1.05rem);
+  color: rgba(247, 228, 202, 0.9);
+}
+
+.reservation-content {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.1rem;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.R-left {
+  position: relative;
+  min-height: min(560px, 68vh);
+  overflow: hidden;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.75)),
+    url("files/Another\ romantic\ place\ to\ celebrate\ your\ moments\ while\ in\ Bali.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(229, 116, 15, 0.58);
+  box-shadow: inset 0 -180px 120px rgba(0, 0, 0, 0.48);
+  opacity: 0;
+}
+
+.R-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.38), transparent 58%);
+  pointer-events: none;
+}
+
+.reservation-card-text {
+  position: absolute;
+  left: clamp(1.6rem, 4vw, 3.2rem);
+  bottom: clamp(1.4rem, 3vw, 2.4rem);
+  max-width: 430px;
+}
+
+.reservation-card-text h2 {
+  margin: 0 0 0.65rem;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.9rem, 3vw, 2.85rem);
+  line-height: 1.15;
+  color: #f7e4ca;
+}
+
+.reservation-card-text h2 span {
+  font-family: "Momo Signature", cursive;
+  font-size: 1.18em;
+  color: #e97810;
+}
+
+.reservation-card-text p {
+  font-family: "Bree Serif", serif;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgba(255, 239, 218, 0.9);
+}
+
+.R-right {
+  display: flex;
+  align-items: stretch;
+}
+
+.r-form {
+  width: 100%;
+  min-height: min(560px, 68vh);
+  padding: clamp(1rem, 2vw, 1.55rem);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 132, 18, 0.11), transparent 34%),
+    rgba(8, 6, 4, 0.78);
+  border: 1px solid rgba(229, 116, 15, 0.72);
+  border-radius: 18px;
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+}
+
+.R-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.2rem 0 0.35rem;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.55rem, 2vw, 2rem);
+  font-weight: 800;
+  color: #f4dcc0;
+}
+
+.R-heading i,
+.form-field > i,
+.safe-note i {
+  color: #ff850e;
+}
+
+.R-para {
+  text-align: center;
+  margin: 0 auto 1rem;
+  font-family: "Bree Serif", serif;
+  line-height: 1.5;
+  color: rgba(247, 228, 202, 0.88);
+  font-size: 0.92rem;
+}
+
+.r-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.form-field {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  align-items: center;
+  min-height: 72px;
+  padding: 0.7rem 0.85rem;
+  background: rgba(12, 9, 5, 0.7);
+  border: 1px solid rgba(231, 132, 38, 0.35);
+  border-radius: 10px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  opacity: 0;
+}
+
+.form-field:hover,
+.form-field:focus-within {
+  border-color: rgba(255, 132, 14, 0.95);
+  box-shadow: 0 0 0 3px rgba(255, 132, 14, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-field > i {
+  font-size: 1.35rem;
+}
+
+.form-field div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.form-field.wide,
+.r-form button {
+  grid-column: 1 / 3;
+}
+
+.message-field {
+  align-items: start;
+  min-height: 86px;
+}
+
+.message-field > i {
+  margin-top: 0.35rem;
+}
+
+.r-form label {
+  font-family: "Bree Serif", serif;
+  font-size: 0.86rem;
+  color: #f7e4ca;
+}
+
+.r-form input,
+.r-form textarea {
+  width: 100%;
+  padding: 0;
+  font-family: "Bree Serif", serif;
+  font-size: 0.95rem;
+  color: #fff0dc;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.r-form input::placeholder,
+.r-form textarea::placeholder {
+  color: rgba(247, 228, 202, 0.58);
+}
+
+.r-form input[type="date"],
+.r-form input[type="time"] {
+  color-scheme: dark;
+}
+
+.r-form textarea {
+  min-height: 44px;
+  resize: vertical;
+}
+
+.r-form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  min-height: 54px;
+  margin-top: 0.15rem;
+  font-family: "Bree Serif", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  background: linear-gradient(180deg, #ff8c19, #d95b08);
+  border: 1px solid rgba(255, 184, 77, 0.9);
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 16px 30px rgba(221, 94, 9, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  opacity: 0;
+}
+
+.r-form button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.07);
+  box-shadow: 0 20px 36px rgba(221, 94, 9, 0.38);
+}
+
+.safe-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.85rem 0 0;
+  font-family: "Bree Serif", serif;
+  color: rgba(247, 228, 202, 0.88);
+  opacity: 0;
+}
+
+.reservation-header.show-reservation-header {
+  animation: reservationFadeDown 0.55s ease forwards;
+}
+
+.R-left.show-reservation-card {
+  animation: reservationSlideLeft 0.65s ease forwards;
+}
+
+.r-form.show-reservation-form {
+  animation: reservationSlideRight 0.65s ease forwards;
+}
+
+.form-field.show-reservation-field,
+.r-form button.show-reservation-field,
+.safe-note.show-reservation-field {
+  animation: reservationFieldRise 0.42s ease forwards;
+}
+
+.form-field.show-reservation-field:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.form-field.show-reservation-field:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+.form-field.show-reservation-field:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.form-field.show-reservation-field:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.form-field.show-reservation-field:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+.form-field.show-reservation-field:nth-child(6) {
+  animation-delay: 0.38s;
+}
+
+.r-form button.show-reservation-field {
+  animation:
+    reservationFieldRise 0.42s ease 0.46s forwards,
+    reservationButtonGlow 2.4s ease 1s infinite;
+}
+
+.safe-note.show-reservation-field {
+  animation-delay: 0.55s;
+}
+
+@media (max-width: 1020px) {
+  .reservation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .R-left {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 650px) {
+  #Reservation {
+    width: calc(100% - 1rem);
+    margin: 1rem auto;
+    padding: 1.4rem 0.75rem;
+  }
+
+  .reservation-title::before,
+  .reservation-title::after {
+    width: 42px;
+  }
+
+  .R-left {
+    min-height: 340px;
+  }
+
+  .r-form form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field,
+  .form-field.wide,
+  .r-form button {
+    grid-column: 1 / 2;
+  }
+
+  .form-field {
+    min-height: 84px;
+  }
+
+  .r-form button {
+    min-height: 62px;
+    gap: 1rem;
+    font-size: 1rem;
+  }
+}
