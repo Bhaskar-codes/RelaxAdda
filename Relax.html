@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="events.css">
     <link rel="stylesheet" href="reservation.css">
     <link rel="stylesheet" href="animation.css">
+    <!-- <link rel="stylesheet" href="list.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bree+Serif&family=Momo+Signature&family=Sixtyfour&display=swap" rel="stylesheet">
@@ -46,8 +47,8 @@
                         <p id="para">Step into RelaxAdda, a premium café space crafted for coffee lovers, late-night talks, creative minds, and unforgettable moments. Sip, chill, work, and relax in a cozy atmosphere designed to feel like your second home.</p>
                 </div>
                 <div class="btn">
-                    <a href="Menu.html" class="mainbtn">Explore Menu</a>
-                    <a href="#Reservation" class="mainbtn">Book Table</a>
+                    <button id="mainbtn">Explore Menu</button>
+                    <button id="mainbtn">Book Table</button>
                 </div>
                 <div class="icons">
                 <p> <span><i class="fa-solid fa-music"></i></span>  Live Music</p>
@@ -157,25 +158,23 @@
                 <p class="menu-para">
                     Every dish is made with love and the finest ingredients to give you an unforgettable experience. </p>
                     </div>
-                    <h3>For More Items Check All Items Or Explore Our Menu</h3>
                     <div class="Menubtn">
-                        <a href="Menu.html" style="text-decoration: none;">
-
-                            <button id="mbtn">All items</button>
-                        </a>
-                        <button id="mbtn" class="home-menu-filter" data-category="RelaxAdda Special">RelaxAdda Special</button>
-                        <br>
+                        <button id="mbtn">All items</button>
+                        <button id="mbtn">Coffee</button>
+                        <button id="mbtn">Snacks</button>
+                        <button id="mbtn">Desserts</button>
+                        <button id="mbtn">Drinks</button>
                     </div>
                 </div>
                 <div class="Menu-right">
                     <div class="cards">
-                    <div class="card" >
+                    <div class="card">
                         <img src="files/Virtuoso Latte.jpg" alt="" srcset="">
                         <i class="fa-regular fa-heart"></i>
                         <div class="tcard">
                             <h2>Cappuccino</h2>
                             <p>A perfect blend of expresso,<br> steamed milk & foam</p>
-                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">149</i> <span class="add-icon"><i class="fa-solid fa-plus"></i></span></p>
+                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">149</i> <span><i class="fa-solid fa-plus"></i></span></p>
                         </div>
                     </div>
                     <div class="card">
@@ -184,7 +183,7 @@
                         <div class="tcard">
                             <h2>Cold Coffee</h2>
                             <p>chilled, Creamy & refreshing <br>Coffee delight.</p>
-                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">159</i> <span class="add-icon"><i class="fa-solid fa-plus"></i></span></p>
+                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">159</i> <span><i class="fa-solid fa-plus"></i></span></p>
                         </div>
                     </div>
                     <div class="card">
@@ -193,7 +192,7 @@
                         <div class="tcard">
                             <h2>Cheezy Pizza</h2>
                             <p>A perfect blend of expresso,<br> steamed milk & foam</p>
-                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">249</i> <span class="add-icon"><i class="fa-solid fa-plus"></i></span></p>
+                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">249</i> <span><i class="fa-solid fa-plus"></i></span></p>
                         </div>
                     </div>
                     <div class="card">
@@ -202,7 +201,7 @@
                         <div class="tcard">
                             <h2>Chocolate Brownie</h2 >
                             <p>A perfect blend of expresso,<br> steamed milk & foam</p>
-                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">129</i> <span class="add-icon"><i class="fa-solid fa-plus"></i></span></p>
+                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">129</i> <span><i class="fa-solid fa-plus"></i></span></p>
                         </div>
                     </div>
                     <div class="card">
@@ -211,7 +210,7 @@
                         <div class="tcard">
                             <h2>Creamy Pasta</h2>
                             <p>A perfect blend of expresso,<br> steamed milk & foam</p>
-                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">199</i> <span class="add-icon"><i class="fa-solid fa-plus"></i></span></p>
+                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">199</i> <span><i class="fa-solid fa-plus"></i></span></p>
                         </div>
                     </div>
                     <div class="card">
@@ -220,7 +219,7 @@
                         <div class="tcard">
                             <h2>Berry Mocktail</h2>
                             <p>A perfect blend of expresso,<br> steamed milk & foam</p>
-                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">109</i> <span class="add-icon"><i class="fa-solid fa-plus"></i></span></p>
+                            <p id="rate"><i class="fa-solid fa-indian-rupee-sign">109</i> <span><i class="fa-solid fa-plus"></i></span></p>
                         </div>
                     </div>
                 </div>
@@ -485,7 +484,7 @@
     <!-- </div> -->
     
 
-    <script src="list.js"></script>
+    <!-- <script src="list.js"></script> -->
     <script src="Relax.js"></script>
 </body>
 </html>

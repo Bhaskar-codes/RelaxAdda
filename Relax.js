@@ -9,7 +9,9 @@ function autoScroll(){
     }
 }
 
-setInterval(autoScroll, 8);
+if(images){
+    setInterval(autoScroll, 8);
+}
 
 function showOnScroll(sectionSelector, itemSelector, showClass){
     const section = document.querySelector(sectionSelector);
@@ -49,3 +51,82 @@ showOnScroll("#Reservation", ".reservation-header", "show-reservation-header");
 showOnScroll("#Reservation", ".R-left", "show-reservation-card");
 showOnScroll("#Reservation", ".r-form", "show-reservation-form");
 showOnScroll("#Reservation", ".form-field, .r-form button, .safe-note", "show-reservation-field");
+
+const homeMenuGrid = document.querySelector(".Menu-right .cards");
+const homeMenuButtons = document.querySelectorAll(".home-menu-filter");
+const homeMenuProducts = window.products || [];
+
+function homeMenuCard(product) {
+    return `
+        <div class="card show" data-category="${product.category}">
+            <img src="${product.image}" alt="${product.title}">
+            <i class="fa-regular fa-heart"></i>
+            <div class="tcard">
+                <h2>${product.title}</h2>
+                <p>${product.description}</p>
+                <p id="rate">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>${product.price}
+                    <span class="add-icon"><i class="fa-solid fa-plus"></i></span>
+                </p>
+            </div>
+        </div>
+    `;
+}
+
+function renderHomeMenu(products) {
+    if(!homeMenuGrid){
+        return;
+    }
+
+    homeMenuGrid.innerHTML = products.map(homeMenuCard).join("");
+}
+
+homeMenuButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const category = button.dataset.category;
+        const filteredProducts = homeMenuProducts.filter((product) => product.category === category);
+
+        renderHomeMenu(filteredProducts);
+    });
+});
+
+function resetAddIcon(element) {
+    element.classList.remove("quantity-control");
+    element.innerHTML = `<i class="fa-solid fa-plus"></i>`;
+}
+
+document.addEventListener("click", (e) => {
+    const element = e.target.closest(".add-icon");
+
+    if(!element){
+        return;
+    }
+
+    if(e.target.closest(".plus")){
+        const count = element.querySelector(".count");
+        count.textContent = Number(count.textContent) + 1;
+        return;
+    }
+
+    if(e.target.closest(".minus")){
+        const count = element.querySelector(".count");
+        const number = Number(count.textContent) - 1;
+
+        if(number === 0){
+            resetAddIcon(element);
+            return;
+        }
+
+        count.textContent = number;
+        return;
+    }
+
+    if(!element.classList.contains("quantity-control")){
+        element.classList.add("quantity-control")
+        element.innerHTML = `
+            <button class="minus">-</button>
+            <span class="count">1</span>
+            <button class="plus">+</button>
+        `;
+    }
+});
