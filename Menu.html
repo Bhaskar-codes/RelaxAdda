@@ -8,16 +8,17 @@
     <link rel="stylesheet" href="Menu.css">
     <link rel="stylesheet" href="animation.css">
     <link rel="stylesheet" href="list.css">
+    <link rel="stylesheet" href="about.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bree+Serif&family=Momo+Signature&family=Sixtyfour&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="menu-body">
+<body class="menu-body" >
     <div class="container">
         <div class="navbar">
             <div class="left">
-                <img id="logo" src="files/ChatGPT Image May 15, 2026, 11_09_35 PM.png" alt="RelaxAdda logo">
+                <!-- <img id="logo" src="files/optimized/logo-thumb.jpg" alt="RelaxAdda logo"> -->
                 <h2 id="logo-text">RelaxAdda</h2>
             </div>
             <div class="right">
@@ -49,7 +50,27 @@
      
        </section>
     </div>
-    <script src="list.js"></script>
-    <script src="Relax.js"></script>
+     <div id="Cart" >
+            <div class="cart-text">
+                <span id="arricon"><i class="fa-solid fa-angle-up"></i></span>
+                <h1>Your Order </h1>
+                <span id="num">0</span> <br>
+                <hr>
+            </div>
+                <div class="cart-list">
+            </div>
+                
+            <div class="button">
+                <button class="Order">Order</button>
+                <button class="Checkout">Parcel</button>
+                
+            </div>
+        </div>
+
+        <!-- js  -->
+        
+
+        <script src="Relax.js"></script>
+        <script src="list.js"></script>
 </body>
 </html>

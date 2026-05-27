@@ -52,81 +52,272 @@ showOnScroll("#Reservation", ".R-left", "show-reservation-card");
 showOnScroll("#Reservation", ".r-form", "show-reservation-form");
 showOnScroll("#Reservation", ".form-field, .r-form button, .safe-note", "show-reservation-field");
 
-const homeMenuGrid = document.querySelector(".Menu-right .cards");
-const homeMenuButtons = document.querySelectorAll(".home-menu-filter");
-const homeMenuProducts = window.products || [];
 
-function homeMenuCard(product) {
-    return `
-        <div class="card show" data-category="${product.category}">
-            <img src="${product.image}" alt="${product.title}">
-            <i class="fa-regular fa-heart"></i>
-            <div class="tcard">
-                <h2>${product.title}</h2>
-                <p>${product.description}</p>
-                <p id="rate">
-                    <i class="fa-solid fa-indian-rupee-sign"></i>${product.price}
-                    <span class="add-icon"><i class="fa-solid fa-plus"></i></span>
-                </p>
-            </div>
-        </div>
-    `;
+ // for cart toggling
+const arrbtn = document.querySelector("#Cart span")
+const body = document.querySelector("body")
+
+arrbtn.addEventListener("click", () => {
+    body.classList.toggle("showcart")
+})
+// for cart 
+const cartlist = document.querySelector("#Cart .cart-list")
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// localStorage.clear()
+const totalQuantity = document.getElementById("num")
+
+// for save cart 
+function saveCart(){
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
 }
 
-function renderHomeMenu(products) {
-    if(!homeMenuGrid){
-        return;
+ function addToCart(title, price){
+
+     // prevent duplicate cart item
+    const existingItems = document.querySelectorAll(".cart-item");
+
+    for(let item of existingItems){
+
+        const itemTitle =
+            item.querySelector(".title").textContent;
+
+        if(itemTitle === title){
+            return;
+        }
     }
 
-    homeMenuGrid.innerHTML = products.map(homeMenuCard).join("");
+
+ const item = document.createElement("div")
+ item.classList.add("cart-item")
+ item.innerHTML =`
+ <h3 class="title">${title}</h3>
+ <div class= "add-icon quantity-control">
+ <button class="minus">-</button>
+ <span class="count">1</span>
+ <button class="plus">+</button>
+ </div>
+ <p class = "price" data-price="${price}"> ${price} </p> 
+ `
+cartlist.appendChild(item)
 }
-
-homeMenuButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const category = button.dataset.category;
-        const filteredProducts = homeMenuProducts.filter((product) => product.category === category);
-
-        renderHomeMenu(filteredProducts);
-    });
-});
 
 function resetAddIcon(element) {
     element.classList.remove("quantity-control");
     element.innerHTML = `<i class="fa-solid fa-plus"></i>`;
 }
+function syncQuantity(title, number){
+
+    const allCards = document.querySelectorAll(
+        ".card, .list-card, .cart-item"
+    );
+
+    allCards.forEach((card) => {
+
+        const itemTitle =
+            card.querySelector(".title")?.textContent;
+
+        if(itemTitle === title){
+
+            // update count
+            const count = card.querySelector(".count");
+
+            if(count){
+                count.textContent = number;
+            }
+
+            // update price
+            const priceElement =
+                card.querySelector(".price");
+
+            if(priceElement){
+
+                const originalPrice =
+                    Number(priceElement.dataset.price);
+
+                priceElement.textContent =
+                    `₹${originalPrice * number}`;
+            }
+
+        }
+
+    });
+
+}
+function updateCartTotal(){
+    let total = 0 
+    cart.forEach((item)=>{
+        total += item.quantity
+    })
+    totalQuantity.textContent = total
+}
 
 document.addEventListener("click", (e) => {
-    const element = e.target.closest(".add-icon");
-
+    const element = e.target.closest(".add-icon")
     if(!element){
-        return;
+        return
     }
 
     if(e.target.closest(".plus")){
-        const count = element.querySelector(".count");
-        count.textContent = Number(count.textContent) + 1;
+        const count = element.querySelector(".count")
+        let number = Number(count.textContent)+1;
+        count.textContent = number;
+
+        const card = e.target.closest(".card") ||
+        e.target.closest(".list-card") ||
+        e.target.closest(".cart-item");
+
+        if(!card){
+    return;
+}
+          const title =
+            card.querySelector(".title").textContent;
+
+        syncQuantity(title, number);
+        const existingProduct = cart.find(
+    (item) => item.title === title
+)
+
+if(existingProduct){
+
+    existingProduct.quantity = number
+}
+
+updateCartTotal()
+saveCart()
+
         return;
     }
-
     if(e.target.closest(".minus")){
-        const count = element.querySelector(".count");
-        const number = Number(count.textContent) - 1;
+        const count = element.querySelector(".count")
+        let number = Number(count.textContent)-1;
+         const card =
+            e.target.closest(".card") ||
+            e.target.closest(".list-card") ||
+            e.target.closest(".cart-item");
 
-        if(number === 0){
-            resetAddIcon(element);
+        if(!card){
             return;
         }
 
+        const title =
+            card.querySelector(".title").textContent;
+       if(number === 0){
+         const allCards = document.querySelectorAll(
+        ".card, .list-card, .cart-item"
+
+        
+    );
+
+    allCards.forEach((item) => {
+
+        const itemTitle =
+            item.querySelector(".title")?.textContent;
+
+        if(itemTitle === title){
+
+            const count =
+                item.querySelector(".count");
+
+            if(count){
+                count.textContent = 0;
+            }
+
+        }
+
+    });
+         if(card.classList.contains("cart-item")){
+                card.remove();
+            }
+
+            // reset all matching cards
+              const productCards = document.querySelectorAll(
+        ".card, .list-card"
+    );
+
+    productCards.forEach((item) => {
+
+        const itemTitle =
+            item.querySelector(".title").textContent;
+
+        if(itemTitle === title){
+
+            const addIcon =
+                item.querySelector(".add-icon");
+
+            resetAddIcon(addIcon);
+
+        }
+
+    });
+cart = cart.filter(
+    (item) => item.title !== title
+)
+
+updateCartTotal()
+saveCart()
+    return;
+}
         count.textContent = number;
+        syncQuantity(title, number);
+        const existingProduct = cart.find(
+    (item) => item.title === title
+)
+
+if(existingProduct){
+
+    existingProduct.quantity = number
+}
+
+updateCartTotal()
+saveCart()
         return;
     }
-
     if(!element.classList.contains("quantity-control")){
-        element.classList.add("quantity-control")
+
+        element.classList.add("quantity-control");
+
         element.innerHTML = `
             <button class="minus">-</button>
+
             <span class="count">1</span>
+
             <button class="plus">+</button>
         `;
+        
+        
+        
+        const card = element.closest(".card")|| element.closest(".list-card")
+        const title = card.querySelector(".title").textContent;
+        const price = card.querySelector(".price").textContent;
+        addToCart(title,price)
+
+        const existingProduct = cart.find(
+    (item) => item.title === title
+)
+
+if(existingProduct){
+
+    existingProduct.quantity++
+
+}
+else{
+
+    cart.push({
+        title,
+        quantity: 1
+    })
+
+}
+
+updateCartTotal()
+saveCart()
+        
     }
+
+
 });
