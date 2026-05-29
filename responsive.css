@@ -1,0 +1,385 @@
+/* Mobile */
+@media(max-width: 768px){
+/* *{
+   outline: 1px solid red;
+} */
+    html,
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+ .navbar{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 4rem;
+  border: 1px solid rgba(255, 166, 0, 0.674);
+    position: sticky;
+    /* overflow: hidden; */
+   
+}
+html{
+    -webkit-tap-highlight-color: transparent;
+}
+nav{
+    display: none;
+    /* position: relative; */
+    
+}
+nav a:hover{
+    color: orange;
+    border-bottom: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+nav.active{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+   right: 10px;
+background: rgba(0, 0, 0, 0.56);
+    border: 1px solid rgba(255, 166, 0, 0.674);
+    top: 60px;
+    transition: all 2s ease;
+}
+
+
+.navbar  span i{
+    display: block ;
+    width: fit-content;
+    opacity: 1;
+    background: none;
+    justify-content: space-between;
+    color: white;
+    font-size: 26px;
+    right: 20px;
+    top: 14px;
+    align-items: center;
+    text-align: center;
+     position: fixed;
+     cursor: pointer;
+     border: none;
+     text-decoration: none;
+}
+.home{
+    grid-template-columns: 1fr;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    
+}
+  #left-section,
+  #right-section,
+  #stat-section{
+    grid-column: auto;
+    width: 100%;
+    gap: 0;
+    /* justify-content: center; */
+  }
+
+.welcome{
+    display: flex;
+    text-align: start;
+    align-items: start;
+    justify-content: start;
+    margin: 0;
+    padding: 0;
+}
+.text{
+    margin: 0;
+
+}
+.mini-title{
+    justify-content: start;
+    padding: 1em;
+    font-size: 22px;
+    align-items: start;
+}
+.mini-title span{
+    /* margin: 0; */
+    font-size: 16px;
+}
+#heading{
+    justify-content: center;
+
+    text-align: start;
+    align-items: center;
+    margin: 0.8em;
+    margin-top: 0;
+    font-size: 2.5rem;
+
+}
+#heading span{
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    width: 7ch;
+}
+#para{
+    font-size: 18px;
+    max-width: 400px;
+    margin-top: 4em;
+    align-items: center;
+    margin-left: 1em;
+}
+.btn{
+    align-items: start;
+    justify-content: start;
+}
+.mainbtn{
+    margin: 1em;
+}
+.icons{
+    align-items: start;
+    justify-content: start;
+    gap: 1em;
+}
+#right-section{
+    justify-content: start;
+    align-items: start;
+    width: 100vw;
+    margin-top: 0;
+}
+#right-section h2{
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.quote{
+    margin-left: 1.59em;
+}
+#stat-section{
+    display: none;
+    /* grid-row: 1/3; */
+    width: 100vw;
+   margin: 0;
+}
+.stats{
+    grid-template-columns: 1fr;
+     
+}
+.stat-card{
+    width: 80%;
+   }
+#sp{
+    font-size: 0.8em;
+}
+.stat-card:nth-child(3){
+     margin-left: 2.2em;
+}
+.stat-card:nth-child(4){
+margin-left: 2em;
+}
+
+
+/* menu section  */
+.Menu{
+    grid-template-columns: 1fr;
+    padding: 0;
+    overflow: hidden;
+    margin: 0;
+    width: 100vw;
+}
+.menu-para{
+    max-width: 450px;
+}
+.Menu-right{
+    margin-left: 0.64em;
+     display: flex;
+    gap: 1rem;
+    padding-inline: 25%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+        padding-left: 145px;
+    padding-right: 145px;
+    /* padding: 1rem 0; */
+    margin: 0;
+    justify-content: flex-start !important;
+}
+.card{
+    /* flex: 0 0 auto; */
+    height: 390px;
+    width: 215px;
+    
+    
+    gap: 0;
+     scroll-snap-align: start;
+}
+.Menu-right::-webkit-scrollbar{
+      display: none;
+  }
+
+/* about section  */
+ .About{
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .About-Left,
+  .About-Right,
+  .About-Bottom{
+    grid-column: auto;
+    width: 100%;
+  }
+  .About-heading{
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+
+  .About-heading span{
+    font-size: 3rem;
+  }
+
+  .About-para,
+  .para-title{
+    font-size: 16px;
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .About-Right{
+    padding: 1rem;
+    height: auto;
+  }
+ .About-Bottom{
+    width: 100vw;
+    /* margin: 0; */
+    /* padding: 0; */
+}
+.Bottom-content{
+    width: 90vw;
+    height:420px;
+    /* border: 2px solid red; */
+    margin: 20px;
+
+    /* column-gap: 20px; */
+    /* width: 100vw; */
+ }
+ .box-img{
+    display: none;
+ }
+
+ /* events section  */
+
+ #Events{
+    grid-template-rows: auto auto;
+    /* width: 100vw; */
+    height: auto;
+    min-height: 100vh;
+    margin-top: 16rem;
+    padding: 3rem 0;
+ }
+ 
+.events-card{
+        /* display: flex; */
+        /* flex-direction: column; */
+      
+
+flex: 0 0 5em;
+    overflow-x:auto;
+    margin-left: 0;
+     padding-inline: 25%;
+         justify-content: flex-start;
+      padding-left: 145px;
+    padding-right: 145px;
+    align-items: center;
+    gap: 20px;
+    padding: 1rem;
+    scroll-behavior: smooth;
+        row-gap: 2rem;
+        padding: 2rem 0;
+         scroll-snap-type: x mandatory;
+    }
+    .events-h-1,
+    .events-p-2{
+        margin-left: 0;
+        text-align: center;
+         
+      
+    }
+    .events-h-1{
+    margin-left: 0;
+    width: 100%;
+    white-space: normal;
+    animation: none;
+    font-size: 2.5rem;
+    text-align: center;
+    overflow: visible;
+        
+    }
+    .events-p-2{
+    margin-left: 0;
+    max-width: 100%;
+    padding: 0 1rem;
+}
+.events-card::-webkit-scrollbar{
+    display: none;
+}
+.card2{
+    min-width: 260px;
+    height: 620px;
+    flex-shrink: 0;
+
+    animation: pop-in linear both;
+animation-timeline: view(x);
+ scroll-snap-align:center;
+ position: relative;
+  will-change: transform;
+ 
+
+    opacity: 1 !important;
+}
+.show3{
+    animation: none;
+}
+ @keyframes pop-in {
+    0%{
+        transform: scale(0.5) rotate(-13deg) ;
+        opacity: 0.3;
+       filter: blur(3px);
+       
+    }
+    50%{
+        transform: scale(1) rotate(0deg) ;
+        opacity: 1;
+        filter: blur(0px);
+        
+        
+    }
+    100%{
+        transform: scale(0.5) rotate(13deg) ;
+        opacity: 0.3;
+        filter: blur(3px);
+
+    }
+}
+.card-text{
+    padding: 2em;
+}
+.footer{
+    margin: 0;
+}
+#Reservation{
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+}
+.R-left{
+    margin: 0;
+    max-width: 100vw;
+    /* border: 2px solid red; */
+}
+.R-right{
+    width: 100vw;
+}
+
+
+} 
+
+
+
+
+/* Laptop */
+/* @media(max-width: 1024px) */

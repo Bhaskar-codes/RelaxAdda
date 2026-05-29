@@ -42,7 +42,7 @@ function showOnScroll(sectionSelector, itemSelector, showClass){
     observer.observe(section);
 }
 
-showOnScroll("#Menu", ".card", "show");
+showOnScroll("#Menu", ".cards", "show");
 showOnScroll("#Events", ".events-text", "show2");
 showOnScroll("#Events", ".card2", "show3");
 showOnScroll("#About", ".About-Left", "show5");
@@ -321,3 +321,42 @@ saveCart()
 
 
 });
+
+// after responsive for mobile
+
+const hamburger = document.querySelector(".navbar span i")
+const nav = document.querySelector("nav")
+// console.log(nav.);
+hamburger.addEventListener("click", () => {
+    nav.classList.toggle("active")
+})
+
+
+
+const eventCards = document.querySelector(".events-card");
+
+function autoScrollEvents() {
+    eventCards.scrollLeft += 1;
+
+    if (
+        eventCards.scrollLeft >=
+        eventCards.scrollWidth - eventCards.clientWidth
+    ) {
+        eventCards.scrollLeft = 0;
+    }
+    // console.log(eventCards.scrollLeft);
+    // eventCards.scrollLeft,
+    // eventCards.scrollWidth,
+    // eventCards.clientWidth
+
+    // console.log("scrolling");
+}
+
+setInterval(autoScrollEvents, 15);
+
+
+eventCards.style.justifyContent = "flex-start";
+
+eventCards.scrollLeft = 100;
+
+console.log(eventCards.scrollLeft);
